@@ -1,4 +1,6 @@
 import axios from "axios";
+//url
+const api_url = 'https://json-auth-test.onrender.com';
 //取出埋在網址內的景點id
 const attractionsId = location.href.split('=')[1];
 const attractionsTitle = document.querySelector('#attractions-title');

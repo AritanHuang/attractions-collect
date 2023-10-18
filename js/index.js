@@ -1,4 +1,6 @@
 import axios from "axios";
+//url
+const api_url = 'https://json-auth-test.onrender.com';
 const attractions = document.querySelector('#attractions-list')
 
 let attractionsData = [];
@@ -6,21 +8,21 @@ let attractionsStr = '';
 
 // 初始化頁面
 function init() {
-    //取得景點
-    axios.get(`${api_url}/views`)
-        .then(function (res) {
-            // console.log(res.data);
-            attractionsData = res.data;
-            renderData();
-        })
-        .catch(function (err) {
-            console.log(err.message);
-        })
+  //取得景點
+  axios.get(`${api_url}/views`)
+    .then(function (res) {
+      // console.log(res.data);
+      attractionsData = res.data;
+      renderData();
+    })
+    .catch(function (err) {
+      console.log(err.message);
+    })
 }
 //渲染景點資料
 function renderData() {
-    attractionsData.forEach(function (item) {
-        attractionsStr += `<li class="col-4">
+  attractionsData.forEach(function (item) {
+    attractionsStr += `<li class="col-4">
         <div class="card h-100">
           <div class="card-header">
             ${item.name}
@@ -33,8 +35,8 @@ function renderData() {
           </div>
         </div>
       </li>`
-    })
-    attractions.innerHTML = attractionsStr;
+  })
+  attractions.innerHTML = attractionsStr;
 }
 
 init();
