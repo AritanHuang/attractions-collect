@@ -1,0 +1,1 @@
+import"./bootstrap.min-dc38d636.js";import{a as n}from"./axios-21b846bc.js";const e=location.href.split("=")[1],a=document.querySelector("#attractions-title"),c=document.querySelector("#attractions-body");let o={};n.get(`${api_url}/views/${e}`).then(function(t){o=t.data,i()}).catch(function(t){console.log(t)});function i(){a.textContent=o.name,c.textContent=o.description}
