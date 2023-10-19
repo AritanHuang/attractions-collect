@@ -33,6 +33,7 @@ function signUp() {
                 })
                 signEmail.value = '';
                 signPassword.value = '';
+                // window.location.href = 'login.html';
             })
             .catch(function (err) {
                 console.log(err.message);
