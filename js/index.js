@@ -22,7 +22,7 @@ function init() {
 //渲染景點資料
 function renderData() {
   attractionsData.forEach(function (item) {
-    attractionsStr += `<li class="col-4">
+    attractionsStr += `<li class="col-12 col-sm-6 col-lg-4">
         <div class="card h-100">
           <div class="card-header">
             ${item.name}
