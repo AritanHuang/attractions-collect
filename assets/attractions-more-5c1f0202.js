@@ -1,0 +1,1 @@
+import{a as n}from"./bootstrap.min-a95462f6.js";const e="https://json-auth-test.onrender.com",a=location.href.split("=")[1],c=document.querySelector("#attractions-title"),r=document.querySelector("#attractions-body");let o={};n.get(`${e}/views/${a}`).then(function(t){o=t.data,i()}).catch(function(t){console.log(t)});function i(){c.textContent=o.name,r.textContent=o.description}
