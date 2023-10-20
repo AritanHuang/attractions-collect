@@ -69,6 +69,8 @@ function openCollectBtn() {
         let collectObj = {};
         collectObj.name = collectData.name;
         collectObj.description = collectData.description;
+        collectObj.id = viewId;
+        // console.log(collectObj);
         if (e.target.textContent === '收藏景點') {
           collectObj.isCollected = 'true';
           // console.log(collectObj);
@@ -81,7 +83,6 @@ function openCollectBtn() {
             .then(function (res) {
               // console.log(res.data);
               Swal.fire({
-                position: 'top-center',
                 icon: 'success',
                 title: '成功',
                 text: `成功收藏[${res.data.name}]`,
