@@ -7,11 +7,14 @@ const api_url = 'https://json-auth-test.onrender.com';
 const attractionsId = location.href.split('=')[1];
 const attractionsTitle = document.querySelector('#attractions-title');
 const attractionsBody = document.querySelector('#attractions-body');
+
 let AttractionsMoreData = {};
-//綁定登出登入註冊按鈕DOM
+
+//綁定登出登入註冊收藏清單按鈕DOM
 const btnLogInMain = document.querySelector('#btn-login-main');
 const btnLogOut = document.querySelector('#btn-logout');
 const btnSignupMain = document.querySelector('#btn-signup-main');
+const btnCollectList = document.querySelector('#btn-collect-list');
 
 //取得第n筆的景點詳細資料
 axios.get(`${api_url}/views/${attractionsId}`)
@@ -31,6 +34,7 @@ function renderAttractionsMore() {
         btnLogInMain.classList.add('d-none');
         btnSignupMain.classList.add('d-none');
         btnLogOut.classList.remove('d-none');
+        btnCollectList.classList.remove('d-none');
     }
     attractionsTitle.textContent = AttractionsMoreData.name;
     attractionsBody.textContent = AttractionsMoreData.description;
@@ -48,8 +52,9 @@ btnLogOut.addEventListener('click', function (e) {
     btnLogInMain.classList.remove('d-none');
     //開啟註冊按鈕
     btnSignupMain.classList.remove('d-none');
-    //關閉登出按鈕
+    //關閉登出收藏清單按鈕
     btnLogOut.classList.add('d-none');
+    btnCollectList.classList.add('d-none');
     btnCollect.forEach(function (item) {
         item.classList.add('d-none');
     })

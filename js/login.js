@@ -14,7 +14,7 @@ let loginObj = {};
 function logIn() {
     loginObj.email = loginEmail.value;
     loginObj.password = loginPassword.value;
-    console.log(loginObj);
+    // console.log(loginObj);
     axios.post(`${api_url}/login`, loginObj)
         .then(function (res) {
             console.log(res.data);

@@ -22,7 +22,7 @@ function signUp() {
     else {
         userObj.email = signEmail.value;
         userObj.password = signPassword.value;
-        console.log(userObj);
+        // console.log(userObj);
         axios.post(`${api_url}/users`, userObj)
             .then(function (res) {
                 // console.log(res);n
