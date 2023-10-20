@@ -22,22 +22,26 @@
             <label for="password" class="form-label">密碼</label>
             <input type="password" class="form-control" id="pwd">
           </div> -->
-                    <div class="mb-3 row">
-                        <label for="loginEmail" class="col-sm-2 col-form-label">信箱</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="loginEmail" placeholder="email@example.com">
+                    <form action="">
+                        <div class="mb-3 row">
+                            <label for="loginEmail" class="col-sm-2 col-form-label">信箱</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="loginEmail" placeholder="email@example.com">
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="loginPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="loginPassword">
+                        <div class="mb-3 row">
+                            <label for="loginPassword" class="col-sm-2 col-form-label">密碼</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" autocomplete="current-password"
+                                    id="loginPassword">
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <input class="btn btn-lg btn-primary" type="button" value="登入" name="btn-login" id="btn-login">
-                    </div>
+                        <div>
+                            <input class="btn btn-lg btn-primary" type="button" value="登入" name="btn-login"
+                                id="btn-login">
+                        </div>
                 </div>
+                </form>
             </div>
         </div>
         <%- include('./layout/footer'); -%>

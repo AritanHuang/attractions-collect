@@ -8,12 +8,13 @@ const loginEmail = document.querySelector('#loginEmail');
 const loginPassword = document.querySelector('#loginPassword');
 const btnLogin = document.querySelector('#btn-login');
 
+
 let loginObj = {};
 
 function logIn() {
     loginObj.email = loginEmail.value;
     loginObj.password = loginPassword.value;
-    // console.log(loginObj);
+    console.log(loginObj);
     axios.post(`${api_url}/login`, loginObj)
         .then(function (res) {
             console.log(res.data);
@@ -24,7 +25,9 @@ function logIn() {
             })
             loginEmail.value = '';
             loginPassword.value = '';
-            window.location.href = 'index.html';
+            localStorage.setItem('token', res.data.accessToken);
+            localStorage.setItem('id', res.data.user.id);
+            window.location.href = 'index.html';//成功登入跳轉回首頁
         })
         .catch(function (err) {
             Swal.fire({

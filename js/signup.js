@@ -25,7 +25,7 @@ function signUp() {
         console.log(userObj);
         axios.post(`${api_url}/users`, userObj)
             .then(function (res) {
-                // console.log(res);
+                // console.log(res);n
                 Swal.fire({
                     icon: 'success',
                     title: '成功',
