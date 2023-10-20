@@ -94,7 +94,11 @@ function openCollectBtn() {
         }
         else {
           e.target.textContent = '收藏景點';
-          axios.delete(`${api_url}/collects/${viewId}`)
+          axios.delete(`${api_url}/600/collects/${viewId}`, {
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          })
             .then(function (res) {
               // console.log(res.data);
               Swal.fire({
