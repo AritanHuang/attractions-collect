@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>登入</title>
-  <script type="module" crossorigin src="/attractions-collect/assets/login-a9e75bf7.js"></script>
-  <link rel="modulepreload" crossorigin href="/attractions-collect/assets/bootstrap.min-a95462f6.js">
-  <link rel="modulepreload" crossorigin href="/attractions-collect/assets/sweetalert2.all-5c20f885.js">
+  <script type="module" crossorigin src="/attractions-collect/assets/login-99cd7403.js"></script>
+  <link rel="modulepreload" crossorigin href="/attractions-collect/assets/bootstrap.min-f808e228.js">
   <link rel="stylesheet" href="/attractions-collect/assets/bootstrap-1e2cd6f0.css">
 </head>
 
@@ -18,8 +17,9 @@
         <a class="link-dark h1" href="index.html">LOGO</a>
         <ul class="list-unstyled d-flex gap-2">
             <li><a class="btn btn-outline-primary" href="index.html">回首頁</a></li>
-            <li><a class="btn btn-outline-primary" href="login.html">登入</a></li>
-            <li><a class="btn btn-outline-primary" href="signup.html">註冊</a></li>
+            <li><a id="btn-login-main" class="btn btn-outline-primary" href="login.html">登入</a></li>
+            <li><a id="btn-logout" class="btn btn-outline-primary d-none">登出</a></li>
+            <li><a id="btn-signup-main" class="btn btn-outline-primary" href="signup.html">註冊</a></li>
         </ul>
     </div>
 </header>        <div class="container">
@@ -34,22 +34,26 @@
             <label for="password" class="form-label">密碼</label>
             <input type="password" class="form-control" id="pwd">
           </div> -->
-                    <div class="mb-3 row">
-                        <label for="loginEmail" class="col-sm-2 col-form-label">信箱</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="loginEmail" placeholder="email@example.com">
+                    <form action="">
+                        <div class="mb-3 row">
+                            <label for="loginEmail" class="col-sm-2 col-form-label">信箱</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="loginEmail" placeholder="email@example.com">
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="loginPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="loginPassword">
+                        <div class="mb-3 row">
+                            <label for="loginPassword" class="col-sm-2 col-form-label">密碼</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" autocomplete="current-password"
+                                    id="loginPassword">
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <input class="btn btn-lg btn-primary" type="button" value="登入" name="btn-login" id="btn-login">
-                    </div>
+                        <div>
+                            <input class="btn btn-lg btn-primary" type="button" value="登入" name="btn-login"
+                                id="btn-login">
+                        </div>
                 </div>
+                </form>
             </div>
         </div>
                     
