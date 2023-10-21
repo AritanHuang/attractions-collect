@@ -30,10 +30,10 @@ function signUp() {
                     icon: 'success',
                     title: '成功',
                     text: '帳號註冊成功',
+                    footer: `<a href="login.html">登入</a>`
                 })
                 signEmail.value = '';
                 signPassword.value = '';
-                // window.location.href = 'login.html';
             })
             .catch(function (err) {
                 console.log(err.message);
