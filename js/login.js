@@ -27,6 +27,8 @@ function logIn() {
             loginPassword.value = '';
             localStorage.setItem('token', res.data.accessToken);
             localStorage.setItem('id', res.data.user.id);
+            //localstorage寫入使用者身份
+            localStorage.setItem('role', res.data.user.role);
             window.location.href = 'index.html';//成功登入跳轉回首頁
         })
         .catch(function (err) {

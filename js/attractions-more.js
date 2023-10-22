@@ -14,6 +14,10 @@ const btnLogInMain = document.querySelector('#btn-login-main');
 const btnLogOut = document.querySelector('#btn-logout');
 const btnSignupMain = document.querySelector('#btn-signup-main');
 const btnCollectList = document.querySelector('#btn-collect-list');
+//綁定後台管理按鈕DOM
+const btnBackStage = document.querySelector('#btn-backstage');
+//取出使用者分份
+let role = localStorage.getItem('role');
 
 //取得第n筆的景點詳細資料
 axios.get(`${api_url}/views/${attractionsId}`)
@@ -41,6 +45,10 @@ function renderAttractionsMore() {
         btnLogOut.classList.remove('d-none');
         btnCollectList.classList.remove('d-none');
         btnAddCollect.classList.remove('d-none');
+        //如果是管理者就開啟後台按鈕
+        if (role === 'admin') {
+            btnBackStage.classList.remove('d-none');
+        }
         btnAddCollect.addEventListener('click', function (e) {
             e.preventDefault();
             // console.log(e.target.textContent === '刪除收藏');

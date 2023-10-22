@@ -52,6 +52,10 @@ const btnLogInMain = document.querySelector('#btn-login-main');
 const btnLogOut = document.querySelector('#btn-logout');
 const btnSignupMain = document.querySelector('#btn-signup-main');
 const btnCollectList = document.querySelector('#btn-collect-list');
+//綁定後台管理按鈕DOM
+const btnBackStage = document.querySelector('#btn-backstage');
+//取出使用者分份
+let role = localStorage.getItem('role');
 //成功登入則開啟景點收藏按鈕&登入登出按鈕替換
 function openCollectBtn() {
   const collectButtons = document.querySelectorAll('.btn-success');
@@ -119,6 +123,10 @@ function openCollectBtn() {
     //關閉登入註冊按鈕
     btnLogInMain.classList.add('d-none');
     btnSignupMain.classList.add('d-none');
+    //判斷身份開啟後台按鈕
+    if (role === 'admin') {
+      btnBackStage.classList.remove('d-none');
+    }
   }
   else if (token === null) {
     Swal.fire({
@@ -161,6 +169,20 @@ function checkAndSetCollectStatus() {
   }
 }
 
+// 在 admin.html 頁面加載時檢查權限
+if (window.location.pathname.includes('/admin.html')) {
+  checkPermission();
+}
+
+function checkPermission() {
+  const token = localStorage.getItem('token');
+  const role = localStorage.getItem('role');
+  console.log(token, role);
+  if (token === null || role !== 'admin') {
+    alert('您沒有拜訪後台的權限！');
+  }
+}
+
 //登出按鈕事件
 btnLogOut.addEventListener('click', function (e) {
   const collectButtons = document.querySelectorAll('.btn-success');
@@ -178,6 +200,10 @@ btnLogOut.addEventListener('click', function (e) {
   //關閉登出收藏清單按鈕
   btnLogOut.classList.add('d-none');
   btnCollectList.classList.add('d-none');
+  //如果是使用者關閉後台管理
+  if (role === 'admin') {
+    btnBackStage.classList.add('d-none');
+  }
   collectButtons.forEach(function (item) {
     item.classList.add('d-none');
   })

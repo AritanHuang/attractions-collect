@@ -22,6 +22,8 @@ function signUp() {
     else {
         userObj.email = signEmail.value;
         userObj.password = signPassword.value;
+        //寫入使用者的身分
+        userObj.role = 'user';
         // console.log(userObj);
         axios.post(`${api_url}/users`, userObj)
             .then(function (res) {

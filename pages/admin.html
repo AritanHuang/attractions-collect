@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>後台管理</title>
+</head>
+
+<body>
+    <%- include('./layout/header'); -%>
+        <div class="container mt-5">
+            <h2>後台</h2>
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">標題</th>
+                        <th scope="col">內文</th>
+                        <th scope="col">編輯</th>
+
+                    </tr>
+                </thead>
+                <tbody id="views-content">
+                    <!-- <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Mark</td>
+                        <td>
+                            <a class="btn btn-primary me-1" href="">編輯</a>
+                            <a class="btn btn-danger" href="">刪除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mark</td>
+                        <td>Jacob</td>
+                        <td><a class="btn btn-primary me-1" href="">編輯</a><a class="btn btn-danger" href="">刪除</a></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Mark</td>
+                        <td>Larry the Bird</td>
+                        <td><a class="btn btn-primary me-1" href="">編輯</a><a class="btn btn-danger" href="">刪除</a></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <%- include('./layout/footer'); -%>
+            <!-- <script src="../js/config.js"></script> -->
+            <script type="module" src="../js/admin.js"></script>
+            <script type="module" src="../main.js"></script>
+</body>
+
+</html>
