@@ -13,6 +13,8 @@ const token = localStorage.getItem('token');
 const btnLogInMain = document.querySelector('#btn-login-main');
 const btnLogOut = document.querySelector('#btn-logout');
 const btnSignupMain = document.querySelector('#btn-signup-main');
+//隱藏全部DOM
+const hideAdmin = document.querySelector('#hide-admin');
 let viewsData = [];
 let viewStr = ''
 //檢查身份
@@ -24,12 +26,20 @@ function checkAdmin() {
         //關閉登入註冊按鈕
         btnLogInMain.classList.add('d-none');
         btnSignupMain.classList.add('d-none');
+        adminInit();
     } else if (token === null || role !== 'admin') {
-        alert('很抱歉，您沒有後台管理者的權限');
-        location.href = 'index.html';
+        hideAdmin.classList.add('d-none');
+        Swal.fire({
+            icon: 'error',
+            title: '很抱歉',
+            text: '您沒有後台管理者的權限',
+        }).then(() => {
+            location.href = 'index.html';
+        });
     }
 }
 checkAdmin();
+
 //後台初始化頁面
 function adminInit() {
     //取得後台景點頁面
@@ -60,7 +70,7 @@ function adminInit() {
         viewsContent.innerHTML = viewStr;
     }
 }
-adminInit();
+
 
 //登出按鈕事件
 btnLogOut.addEventListener('click', function (e) {
