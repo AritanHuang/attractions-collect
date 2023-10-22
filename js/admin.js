@@ -16,7 +16,7 @@ const btnSignupMain = document.querySelector('#btn-signup-main');
 //隱藏全部DOM
 const hideAdmin = document.querySelector('#hide-admin');
 let viewsData = [];
-let viewStr = ''
+// let viewStr = '';
 //檢查身份
 function checkAdmin() {
     if (token !== null && role === 'admin') {
@@ -42,6 +42,7 @@ checkAdmin();
 
 //後台初始化頁面
 function adminInit() {
+    let viewStr = '';
     //取得後台景點頁面
     axios.get(`${api_url}/views`)
         .then(function (res) {
@@ -62,7 +63,7 @@ function adminInit() {
         <td>${item.description}</td>
         <td>
             <a data-num="${item.id}" class="btn btn-primary me-1 btn-view-edit" href="admin-edit.html?id=${item.id}">編輯</a>
-            <a class="btn btn-danger" href="">刪除</a>
+            <a data-num="${item.id}" class="btn btn-danger btn-delete" href="">刪除</a>
         </td>
     </tr>`
         })
@@ -70,6 +71,26 @@ function adminInit() {
         viewsContent.innerHTML = viewStr;
     }
 }
+viewsContent.addEventListener('click', function (e) {
+    //點到編輯按鈕取消預設事件
+    if (e.target.classList.contains('btn-delete')) {
+        e.preventDefault();
+        const deleteNum = e.target.getAttribute('data-num');
+        axios.delete(`${api_url}/views/${deleteNum}`)
+            .then(function (res) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '成功',
+                    text: `刪除成功`,
+                })
+                adminInit();
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    }
+})
+
 
 
 //登出按鈕事件
