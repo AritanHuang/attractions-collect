@@ -169,19 +169,6 @@ function checkAndSetCollectStatus() {
   }
 }
 
-// 在 admin.html 頁面加載時檢查權限
-if (window.location.pathname.includes('/admin.html')) {
-  checkPermission();
-}
-
-function checkPermission() {
-  const token = localStorage.getItem('token');
-  const role = localStorage.getItem('role');
-  console.log(token, role);
-  if (token === null || role !== 'admin') {
-    alert('您沒有拜訪後台的權限！');
-  }
-}
 
 //登出按鈕事件
 btnLogOut.addEventListener('click', function (e) {

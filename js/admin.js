@@ -8,6 +8,7 @@ const viewsContent = document.querySelector('#views-content');
 //綁定管理人員按鈕DOM
 const btnBackstage = document.querySelector('#btn-backstage');
 const role = localStorage.getItem('role');
+const token = localStorage.getItem('token');
 //綁定登出登入註冊收藏清單按鈕DOM
 const btnLogInMain = document.querySelector('#btn-login-main');
 const btnLogOut = document.querySelector('#btn-logout');
@@ -15,14 +16,20 @@ const btnSignupMain = document.querySelector('#btn-signup-main');
 let viewsData = [];
 let viewStr = ''
 //檢查身份
-if (role === 'admin') {
-    btnBackstage.classList.remove('d-none');
-    //開啟登出收藏清單按鈕
-    btnLogOut.classList.remove('d-none');
-    //關閉登入註冊按鈕
-    btnLogInMain.classList.add('d-none');
-    btnSignupMain.classList.add('d-none');
+function checkAdmin() {
+    if (token !== null && role === 'admin') {
+        btnBackstage.classList.remove('d-none');
+        //開啟登出收藏清單按鈕
+        btnLogOut.classList.remove('d-none');
+        //關閉登入註冊按鈕
+        btnLogInMain.classList.add('d-none');
+        btnSignupMain.classList.add('d-none');
+    } else if (token === null || role !== 'admin') {
+        alert('很抱歉，您沒有後台管理者的權限');
+        location.href = 'index.html';
+    }
 }
+checkAdmin();
 //後台初始化頁面
 function adminInit() {
     //取得後台景點頁面
